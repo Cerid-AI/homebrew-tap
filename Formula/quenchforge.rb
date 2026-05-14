@@ -9,17 +9,17 @@
 # Last manual update: v0.4.0 (2026-05-14)
 
 class Quenchforge < Formula
-  desc "ggml-on-AMD-Mac correctness — chat, embedding, reranker, Whisper transcription"
+  desc "Correctness patches for ggml on AMD-Mac — chat, embed, rerank, transcribe"
   homepage "https://github.com/Cerid-AI/quenchforge"
-  license "Apache-2.0"
   version "0.4.0"
+  license "Apache-2.0"
 
   # Hardware constraint — Quenchforge is macOS-only by design, and the
   # patches only matter on Intel Mac + AMD discrete or Apple Silicon. We
   # don't refuse install on supported macOS configs that lack a discrete
   # GPU (e.g. MacBook Air); they get an unaccelerated fallback and a
   # `quenchforge doctor` warning.
-  depends_on :macos => :sonoma
+  depends_on macos: :sonoma
 
   on_macos do
     on_arm do
@@ -90,7 +90,7 @@ class Quenchforge < Formula
     out = shell_output("#{bin}/quenchforge version")
     assert_match "quenchforge", out
     assert_match "darwin", out
-    pf_out = shell_output("#{bin}/quenchforge-preflight 2>&1", 0)
+    pf_out = shell_output("#{bin}/quenchforge-preflight 2>&1")
     assert_match "status=", pf_out
   end
 end
