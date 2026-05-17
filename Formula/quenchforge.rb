@@ -5,13 +5,13 @@
 class Quenchforge < Formula
   desc "Patched ggml inference for AMD-Mac (chat, embed, rerank, transcribe)"
   homepage "https://github.com/Cerid-AI/quenchforge"
-  version "0.5.1"
+  version "0.6.0"
   license "Apache-2.0"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/Cerid-AI/quenchforge/releases/download/v0.5.1/quenchforge_0.5.1_darwin_amd64.tar.gz"
-    sha256 "196e49c0c03accc70de325d01ab99cb3b0f2369363f30d7d460bf07412809db3"
+    url "https://github.com/Cerid-AI/quenchforge/releases/download/v0.6.0/quenchforge_0.6.0_darwin_amd64.tar.gz"
+    sha256 "755149ed68402ea93827181de863fab0f8ee22799838c2923bc658c1bc767fed"
 
     define_method(:install) do
       bin.install "quenchforge"
@@ -20,8 +20,8 @@ class Quenchforge < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/Cerid-AI/quenchforge/releases/download/v0.5.1/quenchforge_0.5.1_darwin_arm64.tar.gz"
-    sha256 "d810a9010e50e95350aa071b32a1c305137a2c9018ba9dcf635b9f4ca260264a"
+    url "https://github.com/Cerid-AI/quenchforge/releases/download/v0.6.0/quenchforge_0.6.0_darwin_arm64.tar.gz"
+    sha256 "1b26823ba9a633c8364979bcbb0478618a84c08e64098054dcfb28b7e8afc02c"
 
     define_method(:install) do
       bin.install "quenchforge"
